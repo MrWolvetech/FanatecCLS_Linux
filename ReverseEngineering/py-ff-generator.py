@@ -95,11 +95,13 @@ def test_constant(device):
     direction = int(input("direction: "))
 
     effect = sdl2.SDL_HapticEffect(type=sdl2.SDL_HAPTIC_CONSTANT, constant= \
-            sdl2.SDL_HapticConstant(type=sdl2.SDL_HAPTIC_CONSTANT, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_POLAR, dir=(direction,0,0)), \
+            sdl2.SDL_HapticConstant(type=sdl2.SDL_HAPTIC_CONSTANT, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_CARTESIAN, dir=(direction,0,0)), \
             length=length, level=level, attack_length=attack_length, fade_length=fade_length))
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(5000)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -118,11 +120,13 @@ def test_sine(device):
     direction = int(input("direction: "))
 
     effect = sdl2.SDL_HapticEffect(type=sdl2.SDL_HAPTIC_SINE, periodic= \
-            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SINE, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_POLAR, dir=(direction,0,0)), \
+            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SINE, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_CARTESIAN, dir=(direction,0,0)), \
             period=period, magnitude=magnitude, length=length, attack_length=attack_length, fade_length=fade_length))
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -142,6 +146,8 @@ def test_left_right(device):
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -160,11 +166,13 @@ def test_triangle(device):
     direction = int(input("direction: "))
 
     effect = sdl2.SDL_HapticEffect(type=sdl2.SDL_HAPTIC_TRIANGLE, periodic= \
-            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SINE, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_POLAR, dir=(direction,0,0)), \
+            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SINE, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_CARTESIAN, dir=(direction,0,0)), \
             period=period, magnitude=magnitude, length=length, attack_length=attack_length, fade_length=fade_length))
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -183,11 +191,13 @@ def test_SawtoothUp(device):
     direction = int(input("direction: "))
 
     effect = sdl2.SDL_HapticEffect(type=sdl2.SDL_HAPTIC_SAWTOOTHUP, periodic= \
-            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SAWTOOTHUP, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_POLAR, dir=(direction,0,0)), \
+            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SAWTOOTHUP, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_CARTESIAN, dir=(direction,0,0)), \
             period=period, magnitude=magnitude, length=length, attack_length=attack_length, fade_length=fade_length))
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -206,11 +216,13 @@ def test_SawtoothDown(device):
     direction = int(input("direction: "))
 
     effect = sdl2.SDL_HapticEffect(type=sdl2.SDL_HAPTIC_SAWTOOTHDOWN, periodic= \
-            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SAWTOOTHDOWN, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_POLAR, dir=(direction,0,0)), \
+            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SAWTOOTHDOWN, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_CARTESIAN, dir=(direction,0,0)), \
             period=period, magnitude=magnitude, length=length, attack_length=attack_length, fade_length=fade_length))
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -229,11 +241,13 @@ def test_ramp(device):
     direction = int(input("direction: "))
 
     effect = sdl2.SDL_HapticEffect(type=sdl2.SDL_HAPTIC_RAMP, ramp= \
-            sdl2.SDL_HapticRamp(type=sdl2.SDL_HAPTIC_RAMP, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_POLAR, dir=(direction,0,0)), \
+            sdl2.SDL_HapticRamp(type=sdl2.SDL_HAPTIC_RAMP, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_CARTESIAN, dir=(direction,0,0)), \
             start=start, end=end, length=length, attack_length=attack_length, fade_length=fade_length))
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -257,6 +271,8 @@ def test_spring(device):
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -280,6 +296,8 @@ def test_damper(device):
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -303,6 +321,8 @@ def test_inertia(device):
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -326,6 +346,8 @@ def test_friction(device):
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(length)
     sdl2.SDL_HapticDestroyEffect(device, effect_id)
@@ -360,11 +382,13 @@ def test_pauze(device):
     print('Testing Sine...')
 
     effect = sdl2.SDL_HapticEffect(type=sdl2.SDL_HAPTIC_SINE, periodic= \
-            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SINE, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_POLAR, dir=(9000,0,0)), \
+            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SINE, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_CARTESIAN, dir=(1,0,0)), \
             period=4000, magnitude=4000, length=5000, attack_length=1000, fade_length=1000))
 
 
     effect_id = sdl2.SDL_HapticNewEffect(device, effect)
+    if(effect_id is -1):
+        print('Error while sending effect:\n{}'.format(sdl2.SDL_GetError()))
     sdl2.SDL_HapticRunEffect(device, effect_id, 1)
     sdl2.SDL_Delay(2500)
     sdl2.SDL_HapticPause(device)
@@ -385,7 +409,7 @@ def test_status(device):
     print('Testing Sine...')
 
     effect = sdl2.SDL_HapticEffect(type=sdl2.SDL_HAPTIC_SINE, periodic= \
-            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SINE, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_POLAR, dir=(9000,0,0)), \
+            sdl2.SDL_HapticPeriodic(type=sdl2.SDL_HAPTIC_SINE, direction=sdl2.SDL_HapticDirection(type=sdl2.SDL_HAPTIC_CARTESIAN, dir=(1,0,0)), \
             period=4000, magnitude=4000, length=5000, attack_length=1000, fade_length=1000))
 
 
