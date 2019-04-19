@@ -1,2 +1,2 @@
 # FanatecCLS_Linux
-A Linux driver for the Fanatec CLS Steering Wheel
+A WORK-IN-PROGRESS Linux driver for the Fanatec CLS Steering Wheel
