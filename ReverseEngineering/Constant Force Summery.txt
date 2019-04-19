@@ -1,0 +1,87 @@
+length, attack_length and fade_length are handled by driver, not by the device.
+
+example:
+
+length: 3 attack_length: 1 fade_length: 1 sends 4 packets
+- start effect with start force     -- at t = 0
+- update force                      -- at t = 1
+- update force                      -- at t = 2
+- stop effect                       -- at t = 3
+
+
+Effect id
+|Enable / Disable (e:1/d:3)
+||:Effect Type (08 constant force)
+||:||:Force = (dir * level * gain / 25000) + 127
+||:||:||:Unused
+||:||:||:||:||:||:||
+01:08:a7:00:00:00:00
+03:08:00:00:00:00:00
+
+#EXAMPLES#
+Constant force:
+    length: 1
+    attack_length: 0
+    fade_length: 0
+    level: 10000 (gain 1)
+    direction: 0 or 1
+Command: 01:08:80:00:00:00:00
+
+Constant force:
+    length: 1
+    attack_length: 0
+    fade_length: 0
+    level: 10000 (gain 10)
+    direction: 0 or 1
+Command: 01:08:84:00:00:00:00
+
+Constant force:
+    length: 1
+    attack_length: 0
+    fade_length: 0
+    level: 10000 (gain 50)
+    direction: 0 or 1
+Command: 01:08:93:00:00:00:00
+
+Constant force:
+    length: 1
+    attack_length: 0
+    fade_length: 0
+    level: 10000 (gain 100)
+    direction: 0 or 1
+Command: 01:08:a7:00:00:00:00
+
+Stop constant force:
+Command: 03:08:00:00:00:00:00
+
+Constant force:
+    length: 1
+    attack_length: 0
+    fade_length: 0
+    level: 5000 (gain 100)
+    direction: 0 or 1
+Command: 01:08:93:00:00:00:00
+
+Constant force:
+    length: 1
+    attack_length: 0
+    fade_length: 0
+    level: 10000 (gain 100)
+    direction: -1
+Command: 01:08:59:00:00:00:00
+
+Constant force:
+    lenth: 1
+    attack_length: 0
+    fade_length: 0
+    level: 10000 (gain 100)
+    direction: 1 or 0
+Command: 01:08:a7:00:00:00:00
+
+Constant force:
+    length: 1
+    attack_length: 0
+    fade_length: 0
+    level: -10000 (gain 100)
+    direction:-1
+Command: 01:08:a7:00:00:00:00
