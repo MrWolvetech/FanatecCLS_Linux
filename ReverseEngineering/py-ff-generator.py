@@ -83,7 +83,7 @@ def checkSupported(device, feature):
     return (feature & sdl2.SDL_HapticQuery(device) is not 0)
 
 def test_constant(device):
-    if(not checkSupported(sdl2.SDL_HAPTIC_CONSTANT)):
+    if(not checkSupported(device, sdl2.SDL_HAPTIC_CONSTANT)):
         print('Constant Force not supported')
         return
     print('Testing Constant...')
